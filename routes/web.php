@@ -6,6 +6,6 @@ use App\Http\Controllers\ModulDetailController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/modul', [ModulController::class, 'index'])->name('modul');
-Route::get('/modul/{modul_id}', [ModulDetailController::class, 'index'])->name('modul_detail');
+Route::get('/', [HomeController::class, 'homepage'])->name('home');
+Route::get('/modul', [HomeController::class, 'modul'])->name('modul');
+Route::get('/modul/{modul_id}', [HomeController::class, 'modulDetail'])->name('modul_detail');
