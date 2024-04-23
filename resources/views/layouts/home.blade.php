@@ -52,7 +52,21 @@
                     <li><a href="/#about">About</a></li>
                     {{-- <li><a href="/#feedback">Feedback</a></li> --}}
                     <li><a href="{{ route('modul') }}">Modul</a></li>
-                    <li><a href="/#">Login</a></li>
+                    @if (auth()->user())
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    @else
+                        <li><a href="/login">Login</a></li>
+                    @endif
                 </ul>
             </nav><!-- .navbar -->
 
@@ -89,9 +103,9 @@
                 <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
             <div class="modulez">
-              <div class="row">
-                <h5>Made with love <i class="bi bi-heart"></i></h5>
-              </div>
+                <div class="row">
+                    <h5>Made with love <i class="bi bi-heart"></i></h5>
+                </div>
             </div>
         </div>
 

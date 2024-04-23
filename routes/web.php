@@ -1,14 +1,22 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ModulController;
-use App\Http\Controllers\ModulDetailController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [HomeController::class, 'homepage'])->name('home');
-Route::get('/modul', [HomeController::class, 'modul'])->name('modul');
-Route::get('/modul/{modul_id}', [HomeController::class, 'modulDetail'])->name('modul_detail');
+Route::get('/', [HomepageController::class, 'homepage'])->name('home');
+Route::get('/modul', [HomepageController::class, 'modul'])->name('modul');
+Route::get('/modul/{modul_id}', [HomepageController::class, 'modulDetail'])->name('modul_detail');
 
-Route::get('/admin', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::prefix('admin')->middleware(['auth', 'Admin99'])->group(function () {
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::resource('modul_admin', ModulController::class);
+});
+
+
+Auth::routes();
+
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
