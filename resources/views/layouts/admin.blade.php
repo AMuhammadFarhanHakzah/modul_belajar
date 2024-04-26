@@ -12,7 +12,7 @@
     <!-- Title Page-->
     <title>Modulez Admin</title>
 
-    @include('components.style')
+    @include('components.styleAdmin')
 </head>
 
 <body class="animsition">
@@ -153,15 +153,15 @@
                             <a href="{{ route('modul_admin.index') }}" style="font-weight: 700; ">
                                 <i class="bi bi-file-earmark-medical"></i>Modul</a>
                         </li>
-                        <li style="margin-bottom: 20em;">
-                            <a href="chart.html" style="font-weight: 700; ">
+                        <li class="{{ $active === 'user' ? 'active has-sub' : ''}}" style="margin-bottom: 20em;">
+                            <a href="{{route('user')}}" style="font-weight: 700; ">
                                 <i class="bi bi-people-fill"></i>User</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </aside>
-        
+
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
@@ -180,13 +180,12 @@
                             </form>
                             <div class="header-button">
                                 <li>
-                                    <a href="{{ route('logout') }}"  style="font-weight: 700; "
-                                        onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"><i class="bi bi-box-arrow-right"></i>
-                                        Logout
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        <i class="bi bi-box-arrow-right" style="margin-right: 5px;"></i>Logout
                                     </a>
-                
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </li>

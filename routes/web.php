@@ -13,6 +13,7 @@ Route::get('/modul/{modul_id}', [HomepageController::class, 'modulDetail'])->nam
 
 Route::prefix('admin')->middleware(['auth', 'Admin99'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/user', [DashboardController::class, 'user'])->name('user');
     Route::resource('modul_admin', ModulController::class);
 });
 

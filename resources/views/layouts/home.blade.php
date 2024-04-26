@@ -52,18 +52,22 @@
                     <li><a href="/#about">About</a></li>
                     {{-- <li><a href="/#feedback">Feedback</a></li> --}}
                     <li><a href="{{ route('modul') }}">Modul</a></li>
-                    @if (auth()->user())
-                        <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
+                    @if (auth()->check())
+                        @if (auth()->user()->role == 'user')
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        @elseif(auth()->user()->role === 'admin')
+                            <li><a href="/admin">Dashboard</a></li>
+                        @endif
                     @else
                         <li><a href="/login">Login</a></li>
                     @endif

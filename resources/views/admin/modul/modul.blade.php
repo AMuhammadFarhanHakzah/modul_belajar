@@ -9,7 +9,7 @@
                         <h1>All modul</h1>
                     </div>
                     <div class="col-lg-4">
-                        <a href="{{route('modul_admin.create')}}" class="btn btn-primary float-right">
+                        <a href="{{route('modul_admin.create')}}" class="btn btn-primary float-right" style="border-radius: 8px;">
                             Create +
                         </a>
                     </div>
