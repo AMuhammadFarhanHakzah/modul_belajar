@@ -15,15 +15,12 @@
                                 <img src="{{ asset('assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
                             </div> --}}
 
-                            <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia
-                            </h2>
+                            <h2 class="name"><strong>{{$modul->name}}</strong></h2>
 
                             <div class="meta-top">
                                 <ul>
-                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                            href="blog-details.html">John Doe</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                            href="blog-details.html"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a>Irfan</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a><time datetime="2020-01-01"> {{$modul->updated_at}} </time></a></li>
                                 </ul>
                             </div><!-- End meta top -->
 
@@ -43,14 +40,10 @@
                             </div>
 
                             <div class="content">
-                                <h2 class="title">Abstrak
+                                <h2 class="title">{{$modul->title}}
                                 </h2>
                                 <p>
-                                    Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi
-                                    praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                                    Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est
-                                    cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis
-                                    dolore.
+                                    {{$modul->content}}
                                 </p>
                             </div><!-- End post content -->
 

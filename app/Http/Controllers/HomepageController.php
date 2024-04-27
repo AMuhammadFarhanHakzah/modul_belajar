@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\modul;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -11,10 +12,12 @@ class HomepageController extends Controller
     }
 
     public function modul() {
-        return view('homepage.modul');
+        $moduls = modul::get();
+        return view('homepage.modul', compact('moduls'));
     }
 
-    public function modulDetail() {
-        return view('homepage.modulDetail');
+    public function modulDetail(string $modul_id) {
+        $modul = modul::find($modul_id);
+        return view('homepage.modulDetail', compact('modul'));
     }
 }

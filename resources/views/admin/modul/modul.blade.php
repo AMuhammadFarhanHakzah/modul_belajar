@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
@@ -9,7 +8,8 @@
                         <h1>All modul</h1>
                     </div>
                     <div class="col-lg-4">
-                        <a href="{{route('modul_admin.create')}}" class="btn btn-primary float-right" style="border-radius: 8px;">
+                        <a href="{{ route('modul_admin.create') }}" class="btn btn-primary float-right"
+                            style="border-radius: 8px;">
                             Create +
                         </a>
                     </div>
@@ -24,56 +24,34 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Modul Name</th>
-                                                <th>Deskripsi</th>
+                                                <th>Title</th>
+                                                <th>Content</th>
+                                                <th>Full</th>
+                                                <th>Lks</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody style="font-size: 15px;">
-                                            <tr class="align-middle">
-                                                <td>1</td>
-                                                <td>Kuis Matematika Dasar</td>
-                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" class="btn btn-sm btn-warning text-white">
-                                                            <i class="bx bx-edit"></i> Edit
-                                                        </a>
-                                                        <button class="btn btn-sm btn-light">
-                                                            <i class="bx bx-trash"></i> Hapus
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td>2</td>
-                                                <td>Kuis Sejarah Dasar</td>
-                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" class="btn btn-sm btn-warning text-white">
-                                                            <i class="bx bx-edit"></i> Edit
-                                                        </a>
-                                                        <button class="btn btn-sm btn-light">
-                                                            <i class="bx bx-trash"></i> Hapus
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td>3</td>
-                                                <td>Kuis Bahasa Indonesia Dasar</td>
-                                                <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</td>
-                                                <td>
-                                                    <div class="d-flex gap-2">
-                                                        <a href="#" class="btn btn-sm btn-warning text-white">
-                                                            <i class="bx bx-edit"></i> Edit
-                                                        </a>
-                                                        <button class="btn btn-sm btn-light">
-                                                            <i class="bx bx-trash"></i> Hapus
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            @foreach ($moduls as $key => $modul)
+                                                <tr class="align-middle">
+                                                    <td> {{ ++$key }} </td>
+                                                    <td>{{ $modul->name }}</td>
+                                                    <td>{{ $modul->title }}</td>
+                                                    <td>{{ $modul->content }}</td>
+                                                    <td>{{ $modul->full_document }}</td>
+                                                    <td>{{ $modul->lks_document }}</td>
+                                                    <td>
+                                                        <div class="d-flex gap-2">
+                                                            <a href="#" class="btn btn-sm btn-warning text-white">
+                                                                <i class="bx bx-edit"></i> Edit
+                                                            </a>
+                                                            <button class="btn btn-sm btn-light">
+                                                                <i class="bx bx-trash"></i> Hapus
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
