@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomepageController::class, 'homepage'])->name('home');
 Route::get('/modul', [HomepageController::class, 'modul'])->name('modul');
 Route::get('/modul/{modul_id}', [HomepageController::class, 'modulDetail'])->name('modul_detail');
+Route::get('/modul/{modul_id}/view', [HomepageController::class, 'modulView'])->name('modulView');
+// Route::get('modul/{modul_id}/{full_document}', [HomepageController::class, 'modulView'])->name('modulView');
 
 Route::prefix('admin')->middleware(['auth', 'Admin99'])->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');

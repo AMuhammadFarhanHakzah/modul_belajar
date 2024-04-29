@@ -33,19 +33,20 @@ class ModulController extends Controller
     {
         // FULL DOCUMENT
         $full_document = "";
-        if ($request->hasFile('full_document')) {
-            $fullFile = $request->full_document;
-            $full_document =  time() . '.' . $fullFile->getClientOriginalName();
-            $fullFile->move('full-Document', $full_document);
-            $full_document = 'full-Document/' . $full_document;
+        if($request->hasFile('full_document')){
+            $fdFile = $request->full_document;
+            $full_document = time() . $fdFile->getClientOriginalName();
+            $fdFile->move('document/fullDocStorage/', $full_document);
+            $full_document = 'document/fullDocStorage/' . $full_document;
         }
-        // LKS DOCUMENT
+
+        // // LKS DOCUMENT
         $lks_document = "";
-        if ($request->hasFile('lks_document')) {
-            $lksFile = $request->lks_document;
-            $lks_document = time() . '.' . $lksFile->getClientOriginalName();
-            $lksFile->move('lks-Document', $lks_document);
-            $lks_document = 'lks-Document/' . $lks_document;
+        if($request->hasFile('lks_document')){
+            $ldFile = $request->lks_document;
+            $lks_document = time() . $ldFile->getClientOriginalName();
+            $ldFile->move('document/lksDocStorage/', $lks_document);
+            $lks_document = 'document/lksDocStorage/' . $lks_document;
         }
 
         $data['name'] = $request->name;
@@ -55,7 +56,7 @@ class ModulController extends Controller
         $data['lks_document'] = $lks_document;
 
         modul::create($data);
-        return redirect()->route('modul_admin.index');
+        return redirect()->route('modul_admin.index')->with('success', 'Modul berhasil dibuat');
     }
 
     /**
@@ -87,6 +88,15 @@ class ModulController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $deleteModul = modul::find($id);
+
+        if($deleteModul->delete()) {
+            if(file_exists($deleteModul->full_document)){
+                unlink($deleteModul->full_document);
+                unlink($deleteModul->lks_document);
+            }
+        }
+
+        return redirect()->back();
     }
 }

@@ -1,5 +1,10 @@
 @extends('layouts.admin')
 @section('content')
+    @if(Session::get('status'))
+        <div class="alert alert-success">
+            $message
+        </div>
+    @endif
     <div class="main-content">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
@@ -45,9 +50,13 @@
                                                             <a href="#" class="btn btn-sm btn-warning text-white">
                                                                 <i class="bx bx-edit"></i> Edit
                                                             </a>
-                                                            <button class="btn btn-sm btn-light">
-                                                                <i class="bx bx-trash"></i> Hapus
-                                                            </button>
+                                                            <form action="{{route('modul_admin.destroy', $modul->modul_id)}}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-sm btn-light" type="submit" onclick="return confirm('Apakah anda yakin ingin menghapus modul ini?')">
+                                                                    <i class="bx bx-trash"></i> Hapus
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>

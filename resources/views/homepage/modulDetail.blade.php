@@ -26,15 +26,17 @@
 
                             <div class="action mt-4">
                                 <div class="btn" style="background-color: teal;">
-                                    <i class="bi bi-eye-fill" style="color: white;"></i><a href="blog-details.html" class="text-light">
+                                    <i class="bi bi-eye-fill" style="color: white;"></i><a href="{{route('modulView', $modul->modul_id)}}" class="text-light">
                                         <strong>View Full Document</strong></a>
                                 </div>
                                 <div class="btn" style="background-color: cyan;">
-                                    <i class="bi bi-cloud-arrow-down"></i><a href="blog-details.html" class="text-dark">
+                                    <i class="bi bi-cloud-arrow-down"></i>
+                                    <a href="{{asset($modul->full_document)}}" class="text-dark">
                                     <strong> Download Full</strong></a>
                                 </div>
                                 <div class="btn" style="background-color: cyan;">
-                                    <i class="bi bi-cloud-arrow-down"></i><a href="blog-details.html" class="text-dark">
+                                    <i class="bi bi-cloud-arrow-down"></i>
+                                    <a href="{{asset($modul->lks_document)}}" class="text-dark">
                                     <strong> Download LKS</strong></a>
                                 </div>
                             </div>
