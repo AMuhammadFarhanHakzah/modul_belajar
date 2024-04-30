@@ -29,6 +29,37 @@ class ModulController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+    // public function store(Request $request)
+    // {
+    //     $data = new modul();
+
+    //     $full_document = "";
+    //     if ($request->hasFile('full_document')) {
+    //         $fileFD = $request->full_document;
+    //         $FDname = time() . '.' . $fileFD->getClientOriginalExtension();
+    //         $request->fileFD->move('document/fullDocStorage', $FDname);
+    //         $data->full_document = $FDname;
+    //     }
+
+    //     $lks_document = "";
+    //     if ($request->hasFile('lks_document')) {
+    //         $fileLD = $request->lks_document;
+    //         $LDname = time() . '.' . $fileLD->getClientOriginalExtension();
+    //         $request->fileLD->move('document/lksDocStorage', $LDname);
+    //         $data->lks_document = $LDname;
+    //     }
+
+    //     $data->name = $request->name;
+    //     $data->title = $request->title;
+    //     $data->content = $request->content;
+
+    //     $data->save();
+
+    //     return redirect()->route('modul_admin.index');
+    // }
+
+
     public function store(Request $request)
     {
         // FULL DOCUMENT
@@ -37,7 +68,7 @@ class ModulController extends Controller
             $fdFile = $request->full_document;
             $full_document = time() . $fdFile->getClientOriginalName();
             $fdFile->move('document/fullDocStorage/', $full_document);
-            $full_document = 'document/fullDocStorage/' . $full_document;
+            $full_document = $full_document;
         }
 
         // // LKS DOCUMENT
@@ -46,7 +77,7 @@ class ModulController extends Controller
             $ldFile = $request->lks_document;
             $lks_document = time() . $ldFile->getClientOriginalName();
             $ldFile->move('document/lksDocStorage/', $lks_document);
-            $lks_document = 'document/lksDocStorage/' . $lks_document;
+            $lks_document = $lks_document;
         }
 
         $data['name'] = $request->name;
@@ -90,8 +121,8 @@ class ModulController extends Controller
     {
         $deleteModul = modul::find($id);
 
-        if($deleteModul->delete()) {
-            if(file_exists($deleteModul->full_document)){
+        if ($deleteModul->delete()) {
+            if (file_exists($deleteModul->full_document)) {
                 unlink($deleteModul->full_document);
                 unlink($deleteModul->lks_document);
             }
