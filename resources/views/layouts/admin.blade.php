@@ -153,8 +153,8 @@
                             <a href="{{ route('modul_admin.index') }}" style="font-weight: 700; ">
                                 <i class="bi bi-file-earmark-medical"></i>Modul</a>
                         </li>
-                        <li class="{{ $active === 'user' ? 'active has-sub' : ''}}" style="margin-bottom: 20em;">
-                            <a href="{{route('user')}}" style="font-weight: 700; ">
+                        <li class="{{ $active === 'user' ? 'active has-sub' : '' }}" style="margin-bottom: 20em;">
+                            <a href="{{ route('user') }}" style="font-weight: 700; ">
                                 <i class="bi bi-people-fill"></i>User</a>
                         </li>
                     </ul>
@@ -180,14 +180,14 @@
                             </form>
                             <div class="header-button">
                                 <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                        <i class="bi bi-box-arrow-right" style="margin-right: 5px;"></i>Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
+                                        <button type="submit"
+                                            style="background: none; border: none; padding: 0; margin: 0;">
+                                            <i class="bi bi-box-arrow-right" style="margin-right: 5px;"></i>Logout
+                                        </button>
                                     </form>
+
                                 </li>
                             </div>
                         </div>

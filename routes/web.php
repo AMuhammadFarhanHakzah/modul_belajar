@@ -20,6 +20,8 @@ Route::prefix('admin')->middleware(['auth', 'Admin99'])->group(function () {
 });
 
 
+
 Auth::routes();
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::post('/logout', ['Auth\LoginController@logout'])->name('logout');
