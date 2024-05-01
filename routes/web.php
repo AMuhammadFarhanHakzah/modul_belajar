@@ -11,6 +11,8 @@ Route::get('/', [HomepageController::class, 'homepage'])->name('home');
 Route::get('/modul', [HomepageController::class, 'modul'])->name('modul');
 Route::get('/modul/{modul_id}', [HomepageController::class, 'modulDetail'])->name('modul_detail');
 Route::get('/view/{file}', [HomepageController::class, 'modulView']);
+Route::get('/download/{file}', [HomepageController::class, 'download']);
+
 // Route::get('modul/{modul_id}/{full_document}', [HomepageController::class, 'modulView'])->name('modulView');
 
 Route::prefix('admin')->middleware(['auth', 'Admin99'])->group(function () {
