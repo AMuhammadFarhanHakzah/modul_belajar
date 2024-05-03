@@ -19,7 +19,7 @@
             <nav>
                 <div class="container">
                     <ol>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                         <li>Modul</li>
                     </ol>
                 </div>
@@ -36,7 +36,7 @@
                             <article>
 
                                 <div class="post-img">
-                                    <img src="{{asset('assets/img/blog/blog-5.jpg')}}" alt="" class="img-fluid">
+                                    <img src="{{asset('assets/img/about.jpg')}}" alt="" class="img-fluid">
                                 </div>
 
                                 <h2 class="title">

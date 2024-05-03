@@ -6,6 +6,7 @@ use App\Models\modul;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Exists;
+use Spatie\PdfToImage\Pdf;
 
 use function PHPUnit\Framework\fileExists;
 
@@ -27,10 +28,6 @@ class HomepageController extends Controller
 
     public function modulView($modul_id){
         return response()->file(public_path('document/fullDocStorage/'.$modul_id));
-
-        // $modul = modul::find($modul_id);
-
-        // return view('homepage.modulView', compact('modul'));
     }
 
     public function download(Request $request, $file) {
