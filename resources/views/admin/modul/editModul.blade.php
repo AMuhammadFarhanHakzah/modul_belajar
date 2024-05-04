@@ -7,19 +7,19 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Basic Form</strong> Elements
+                                <strong>Edit modul</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="{{ route('modul_admin.store') }}" method="post" enctype="multipart/form-data"
-                                    class="form-horizontal">
+                                <form action="{{ route('modul_admin.update', $moduls->modul_id) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                     @csrf
+                                    @method('PUT')
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="name" class=" form-control-label">Modul Name</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="name" name="name" placeholder="Text"
-                                                class="form-control" value="{{ old('name') }}" required>
+                                                class="form-control" value="{{ $moduls->name }}" required>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="title" name="title" placeholder="Text"
-                                                class="form-control" value="{{ old('title') }}" required>
+                                                class="form-control" value="{{ $moduls->title }}" required>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -36,7 +36,7 @@
                                             <label for="content" class=" form-control-label">Content</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <textarea name="content" id="content" rows="9" placeholder="Content..." class="form-control" required>{{ old('content') }}</textarea>
+                                            <textarea name="content" id="content" rows="9" placeholder="Content..." class="form-control" required>{{ $moduls->content }}</textarea>
                                         </div>
                                     </div>
                                     <div class="row form-group">

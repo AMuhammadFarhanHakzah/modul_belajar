@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('content');
             $table->text('full_document');
             $table->text('lks_document');
+            $table->text('foto');
             $table->timestamps();
         });
     }

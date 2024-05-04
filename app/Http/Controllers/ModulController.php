@@ -14,7 +14,7 @@ class ModulController extends Controller
     public function index()
     {
         $active = 'modulAdmin';
-        $moduls = modul::get();
+        $moduls = modul::paginate(10);
         return view('admin.modul.modul', compact('active', 'moduls'));
     }
 
@@ -35,9 +35,6 @@ class ModulController extends Controller
             $fdFile = $request->full_document;
             $full_document = time() . $fdFile->getClientOriginalName();
             $fdFile->move('document/fullDocStorage/', $full_document);
-
-            $fdPath = public_path('document/fullDocStorage/'.$full_document);
-            (new Pdf($fdPath))->saveImage(public_path('document/fotoFullDoc/'.$request->name.'.jpg'));
         }
 
         // // LKS DOCUMENT
@@ -48,11 +45,19 @@ class ModulController extends Controller
             $ldFile->move('document/lksDocStorage/', $lks_document);
         }
 
+        $foto = "";
+        if($request->hasFile('foto')){
+            $fileFoto = $request->foto;
+            $foto = time().$fileFoto->getClientOriginalName();
+            $fileFoto->move('document/fotoStorage/', $foto);
+        }
+
         $data['name'] = $request->name;
         $data['title'] = $request->title;
         $data['content'] = $request->content;
         $data['full_document'] = $full_document;
         $data['lks_document'] = $lks_document;
+        $data['foto'] = $foto;
 
         modul::create($data);
         return redirect()->route('modul_admin.index')->with('success', 'Modul berhasil dibuat');
@@ -71,7 +76,9 @@ class ModulController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $moduls = modul::find($id);
+        $active = 'modulAdmin';
+        return view('admin.modul.editModul', compact('moduls', 'active'));
     }
 
     /**
@@ -79,7 +86,39 @@ class ModulController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $itemModuls = modul::find($id);
+        // FULL DOCUMENT
+        $full_document = "";
+        if($request->hasFile('full_document')){
+            $fdFile = $request->full_document;
+            $full_document = time() . $fdFile->getClientOriginalName();
+            $fdFile->move('document/fullDocStorage/', $full_document);
+        }
+
+        // // LKS DOCUMENT
+        $lks_document = "";
+        if($request->hasFile('lks_document')){
+            $ldFile = $request->lks_document;
+            $lks_document = time() . $ldFile->getClientOriginalName();
+            $ldFile->move('document/lksDocStorage/', $lks_document);
+        }
+
+        $foto = "";
+        if($request->hasFile('foto')){
+            $fileFoto = $request->foto;
+            $foto = time().$fileFoto->getClientOriginalName();
+            $fileFoto->move('document/fotoStorage/', $foto);
+        }
+
+        $data['name'] = $request->name;
+        $data['title'] = $request->title;
+        $data['content'] = $request->content;
+        $data['full_document'] = $full_document;
+        $data['lks_document'] = $lks_document;
+        $data['foto'] = $foto;
+
+        $itemModuls->update($data);
+        return redirect()->route('modul_admin.index')->with('success', 'Modul berhasil diupdate');
     }
 
     /**

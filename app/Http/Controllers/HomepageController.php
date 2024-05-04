@@ -17,7 +17,7 @@ class HomepageController extends Controller
     }
 
     public function modul() {
-        $moduls = modul::get();
+        $moduls = modul::paginate(6);
         return view('homepage.modul', compact('moduls'));
     }
 

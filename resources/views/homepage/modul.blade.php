@@ -36,7 +36,7 @@
                             <article>
 
                                 <div class="post-img">
-                                    <img src="{{asset('assets/img/about.jpg')}}" alt="" class="img-fluid">
+                                    <img src="document/fotoStorage/{{$modul->foto}}" alt="" class="img-fluid">
                                 </div>
 
                                 <h2 class="title">
@@ -59,15 +59,17 @@
                             </article>
                         </div><!-- End post list item -->
                     @endforeach
+                    {{$moduls->links()}}
                 </div><!-- End blog posts list -->
 
-                <div class="blog-pagination">
+
+                {{-- <div class="blog-pagination">
                     <ul class="justify-content-center">
                         <li><a href="#">1</a></li>
                         <li class="active"><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                     </ul>
-                </div><!-- End blog pagination -->
+                </div><!-- End blog pagination --> --}}
 
             </div>
         </section><!-- End Blog Section -->

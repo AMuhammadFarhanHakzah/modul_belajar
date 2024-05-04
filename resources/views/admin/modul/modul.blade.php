@@ -31,8 +31,6 @@
                                                 <th>Modul Name</th>
                                                 <th>Title</th>
                                                 <th>Content</th>
-                                                <th>Full</th>
-                                                <th>Lks</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -40,14 +38,12 @@
                                             @foreach ($moduls as $key => $modul)
                                                 <tr class="align-middle">
                                                     <td> {{ ++$key }} </td>
-                                                    <td>{{ $modul->name }}</td>
-                                                    <td>{{ $modul->title }}</td>
-                                                    <td>{{ $modul->content }}</td>
-                                                    <td>{{ $modul->full_document }}</td>
-                                                    <td>{{ $modul->lks_document }}</td>
+                                                    <td style="word-break: break-all">{{ Str::limit($modul->name, 15, ' . . .') }}</td>
+                                                    <td style="word-break: break-all">{{ Str::limit($modul->title, 15, ' . . .') }}</td>
+                                                    <td style="word-break: break-all">{{ Str::limit($modul->content, 50, ' . . .') }}</td>
                                                     <td>
                                                         <div class="d-flex gap-2">
-                                                            <a href="#" class="btn btn-sm btn-warning text-white">
+                                                            <a href="{{route('modul_admin.edit', $modul->modul_id)}}" class="btn btn-sm btn-warning text-white">
                                                                 <i class="bx bx-edit"></i> Edit
                                                             </a>
                                                             <form action="{{route('modul_admin.destroy', $modul->modul_id)}}" method="POST">
@@ -63,6 +59,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    {{$moduls->links()}}
                                 </div>
                             </div>
                         </div>
