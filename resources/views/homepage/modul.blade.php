@@ -30,18 +30,34 @@
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
 
+
+                <div class="card-body mb-4">
+                    <form action="{{ route('modulSearch') }}" method="GET">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" name='key' id='key' placeholder="Search modul" value="{{ $cari ?? '' }}">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary" style="border-radius: 4em"><i class="bi bi-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
                 <div class="row gy-4 posts-list">
                     @foreach ($moduls as $modul)
                         <div class="col-xl-4 col-md-6">
                             <article>
-
-                                <div class="post-img">
-                                    <img src="document/fotoStorage/{{$modul->foto}}" alt="" class="img-fluid">
-                                </div>
+                                <a href="{{ route('modul_detail', $modul->modul_id) }}">
+                                    <div class="post-img">
+                                        <img src="document/fotoStorage/{{ $modul->foto }}" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                </a>
 
                                 <h2 class="title">
-                                    <a href="{{ route('modul_detail', $modul->modul_id)}}">
-                                      {{$modul->name}}
+                                    <a href="{{ route('modul_detail', $modul->modul_id) }}">
+                                        {{ Str::limit($modul->name, 15, ' . . .') }}
                                     </a>
                                 </h2>
 
@@ -51,7 +67,7 @@
                                     <div class="post-meta">
                                         <p class="post-author-list">Irfan</p>
                                         <p class="post-date">
-                                            <time datetime="2022-01-01">{{$modul->created_at}}</time>
+                                            <time datetime="2022-01-01">{{ $modul->created_at }}</time>
                                         </p>
                                     </div>
                                 </div>
@@ -59,7 +75,7 @@
                             </article>
                         </div><!-- End post list item -->
                     @endforeach
-                    {{$moduls->links()}}
+                    {{ $moduls->links() }}
                 </div><!-- End blog posts list -->
 
 

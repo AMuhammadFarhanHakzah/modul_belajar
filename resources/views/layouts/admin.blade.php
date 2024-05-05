@@ -23,7 +23,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="{{route('home')}}">
-                            <img src="{{ asset('assets/img/83790f2b43f00be.png') }}" alt="Modulez" />
+                            <img src="{{ asset('assets/img/large-cV0nxCb-A-transformed.png') }}" alt="Modulez" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -138,7 +138,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="{{route('home')}}">
-                    <img src="{{ asset('assets/img/83790f2b43f00be.png') }}" style="width: 3em;" alt="Modulez" />
+                    <img src="{{ asset('assets/img/large-cV0nxCb-A-transformed.png') }}" style="width: 3em;" alt="Modulez" />
                 </a>
                 <a href="{{route('home')}}">
                     <h1 class="ml-2"><strong>Modulez</strong></h1>

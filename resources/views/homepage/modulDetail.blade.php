@@ -15,7 +15,7 @@
                                 <img src="{{ asset('assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
                             </div> --}}
 
-                            <h2 class="name"><strong>{{ $modul->name }}</strong></h2>
+                            <h2 class="name" style="word-break: break-all"><strong>{{ $modul->name }}</strong></h2>
 
                             <div class="meta-top">
                                 <ul>
@@ -28,8 +28,7 @@
                             <div class="action mt-4">
                                 <div class="btn" style="background-color: teal;">
                                     <i class="bi bi-eye-fill" style="color: white;"></i>
-                                    <a
-                                        href="/view/{{$modul->full_document}}" class="text-light">
+                                    <a href="/view/{{ $modul->full_document }}" class="text-light">
                                         <strong>View Full Document</strong>
                                     </a>
                                 </div>
@@ -37,12 +36,12 @@
                                     @if (auth()->user())
                                         <div class="btn" style="background-color: cyan;">
                                             <i class="bi bi-cloud-arrow-down"></i>
-                                            <a href="/download/{{$modul->full_document}}" class="text-dark">
+                                            <a href="/download/{{ $modul->full_document }}" class="text-dark">
                                                 <strong> Download Full</strong></a>
                                         </div>
                                         <div class="btn" style="background-color: cyan;">
                                             <i class="bi bi-cloud-arrow-down"></i>
-                                            <a href="/download/{{$modul->lks_document}}" class="text-dark">
+                                            <a href="/download/{{ $modul->lks_document }}" class="text-dark">
                                                 <strong> Download LKS</strong></a>
                                         </div>
                                     @endif
@@ -61,9 +60,9 @@
                             </div>
 
                             <div class="content">
-                                <h2 class="title">{{ $modul->title }}
+                                <h2 class="title" style="word-break: break-all">{{ $modul->title }}
                                 </h2>
-                                <p>
+                                <p style="word-break: break-all">
                                     {{ $modul->content }}
                                 </p>
                             </div><!-- End post content -->
@@ -71,85 +70,29 @@
                         </article><!-- End blog post -->
 
 
-                        <div class="comments">
-
-                            <div class="reply-form">
-
-                                <h4>Leave a feedback</h4>
-                                <div class="row">
-                                    <div class="col form-group">
-                                        <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn text-light" style="background-color: #1f1f1f;">Post
-                                    Comment</button>
-
-                                </form>
-
-                            </div>
-
-                        </div><!-- End blog comments -->
-
                     </div>
 
                     <div class="col-lg-4">
 
                         <div class="sidebar">
 
-                            <div class="sidebar-item search-form">
-                                <h3 class="sidebar-title">Search</h3>
-                                <form action="" class="mt-3">
-                                    <input type="text">
-                                    <button type="submit"><i class="bi bi-search"></i></button>
-                                </form>
-                            </div><!-- End sidebar search formn-->
-
                             <div class="sidebar-item recent-posts">
                                 <h3 class="sidebar-title">Recent Modul</h3>
 
                                 <div class="mt-3">
 
-                                    <div class="post-item mt-3">
-                                        <img src="{{ asset('assets/img/blog/blog-recent-1.jpg') }}" alt="">
-                                        <div>
-                                            <h4><a href="blog-details.html">Nihil blanditiis at in nihil autem</a></h4>
-                                            <time datetime="2020-01-01">Jan 1, 2020</time>
-                                        </div>
-                                    </div><!-- End recent post item-->
-
-                                    <div class="post-item">
-                                        <img src="{{ asset('assets/img/blog/blog-recent-2.jpg') }}" alt="">
-                                        <div>
-                                            <h4><a href="blog-details.html">Quidem autem et impedit</a></h4>
-                                            <time datetime="2020-01-01">Jan 1, 2020</time>
-                                        </div>
-                                    </div><!-- End recent post item-->
-
-                                    <div class="post-item">
-                                        <img src="{{ asset('assets/img/blog/blog-recent-3.jpg') }}" alt="">
-                                        <div>
-                                            <h4><a href="blog-details.html">Id quia et et ut maxime similique occaecati
-                                                    ut</a></h4>
-                                            <time datetime="2020-01-01">Jan 1, 2020</time>
-                                        </div>
-                                    </div><!-- End recent post item-->
-
-                                    <div class="post-item">
-                                        <img src="{{ asset('assets/img/blog/blog-recent-4.jpg') }}" alt="">
-                                        <div>
-                                            <h4><a href="blog-details.html">Laborum corporis quo dara net para</a></h4>
-                                            <time datetime="2020-01-01">Jan 1, 2020</time>
-                                        </div>
-                                    </div><!-- End recent post item-->
-
-                                    <div class="post-item">
-                                        <img src="{{ asset('assets/img/blog/blog-recent-5.jpg') }}" alt="">
-                                        <div>
-                                            <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a>
-                                            </h4>
-                                            <time datetime="2020-01-01">Jan 1, 2020</time>
-                                        </div>
-                                    </div><!-- End recent post item-->
+                                    @foreach ($latestModul as $latest)
+                                        <div class="post-item mt-3">
+                                            <a href="{{route('modul_detail', $latest->modul_id)}}">
+                                                <img src="/document/fotoStorage/{{$latest->foto}}" alt="" style="width: 5em; height: 5em;">
+                                            </a>
+                                            <div>
+                                                <h4><a href="{{ route('modul_detail', $latest->modul_id)}}" style="word-break: break-all">{{ Str::limit($latest->name, 15, ' . . .') }}</a></h4>
+                                                <time>{{$latest->updated_at}}</time>
+                                            </div>
+                                        </div><!-- End recent post item-->
+                                        <br>
+                                    @endforeach
 
                                 </div>
 

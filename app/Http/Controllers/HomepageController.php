@@ -13,7 +13,8 @@ use function PHPUnit\Framework\fileExists;
 class HomepageController extends Controller
 {
     public function homepage() {
-        return view('homepage.homepage');
+        $moduls = modul::paginate(6);
+        return view('homepage.homepage', compact('moduls'));
     }
 
     public function modul() {
@@ -21,9 +22,16 @@ class HomepageController extends Controller
         return view('homepage.modul', compact('moduls'));
     }
 
+    public function search(Request $request) {
+        $cari = $request->key;
+        $moduls = modul::where('name', 'like', '%'.$cari.'%')->paginate(6);
+        return view('homepage.modul', compact('moduls', 'cari'));
+    }
+
     public function modulDetail(string $modul_id) {
         $modul = modul::find($modul_id);
-        return view('homepage.modulDetail', compact('modul'));
+        $latestModul = modul::orderBy('created_at', 'desc')->take(6)->get();
+        return view('homepage.modulDetail', compact('modul', 'latestModul'));
     }
 
     public function modulView($modul_id){

@@ -43,7 +43,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                <img src="{{ asset('assets/img/large-cV0nxCb-A-transformed.png') }}" alt="">
                 <h1>Modulez<span>.</span></h1>
             </a>
             <nav id="navbar" class="navbar">
