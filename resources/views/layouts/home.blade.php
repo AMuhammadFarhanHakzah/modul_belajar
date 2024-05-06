@@ -26,14 +26,15 @@
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope d-flex align-items-center"><a
-                        href="mailto:contact@example.com">contact@example.com</a></i>
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+                        href="mailto:irfanrvieri@gmail.com">irfanrvieri@gmail.com</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>089512293207</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+                <a href="https://wa.me/+6289512293207" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://www.facebook.com/irfanr.vieri.5?mibextid=ZbWKwL" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/ipaanvieri?igsh=MXNucHVzbGtqdWo3dQ==" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/irfan-rahadian-vieri-61233b2b5/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    class="linkedin"><i class="bi bi-linkedin"></i></i></a>
             </div>
         </div>
     </section><!-- End Top Bar -->
@@ -41,7 +42,7 @@
     <header id="header" class="header d-flex align-items-center">
 
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{route('home')}}" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <img src="{{ asset('assets/img/large-cV0nxCb-A-transformed.png') }}" alt="">
                 <h1>Modulez<span>.</span></h1>
@@ -96,15 +97,14 @@
                         </strong>
                     </a>
                 </h2>
-
-            </div>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
-                darta donna mare fermentum iaculis eu non diam phasellus.</p>
-            <div class="social-links d-flex mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <p>Lebih baik menanam di kebun sendiri daripada mengejar kupu-kupu</p>
+                <div class="social-links d-flex mt-2">
+                    <a href="https://wa.me/+6289512293207" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/irfanr.vieri.5?mibextid=ZbWKwL" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/ipaanvieri?igsh=MXNucHVzbGtqdWo3dQ==" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/irfan-rahadian-vieri-61233b2b5/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        class="linkedin"><i class="bi bi-linkedin"></i></a>
+                </div>
             </div>
             <div class="modulez">
                 <div class="row">

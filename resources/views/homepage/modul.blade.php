@@ -7,11 +7,15 @@
             <div class="page-header d-flex align-items-center" style="background-image: url('');">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-lg-6 text-center">
+                        <div class="col-lg-12 text-center">
                             <h2><strong>Modul</strong></h2>
-                            <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas
-                                consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione
-                                sint. Sit quaerat ipsum dolorem.</p>
+                            <p>Modul ajar adalah sejumlah alat atau sarana media, metode, petunjuk, dan pedoman yang
+                                dirancang secara sistematis dan menarik. Modul ajar merupakan implementasi dari Alur Tujuan
+                                Pembelajaran yang dikembangkan dari Capaian Pembelajaran dengan Profil Pelajar Pancasila
+                                sebagai sasaran. Modul ajar disusun sesuai dengan fase atau tahap perkembangan peserta
+                                didik, mempertimbangkan apa yang akan dipelajari dengan tujuan pembelajaran, dan berbasis
+                                perkembangan jangka panjang. Guru perlu memahami konsep mengenai modul ajar agar proses
+                                pembelajaran lebih menarik dan bermakna.</p>
                         </div>
                     </div>
                 </div>
@@ -35,15 +39,17 @@
                     <form action="{{ route('modulSearch') }}" method="GET">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" name='key' id='key' placeholder="Search modul" value="{{ $cari ?? '' }}">
+                                <input type="text" class="form-control" name='key' id='key'
+                                    placeholder="Search modul" value="{{ $cari ?? '' }}">
                             </div>
                             <div class="col-auto">
-                                <button type="submit" class="btn btn-primary" style="border-radius: 4em"><i class="bi bi-search"></i></button>
+                                <button type="submit" class="btn btn-primary" style="border-radius: 4em"><i
+                                        class="bi bi-search"></i></button>
                             </div>
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="row gy-4 posts-list">
                     @foreach ($moduls as $modul)
                         <div class="col-xl-4 col-md-6">
@@ -62,8 +68,8 @@
                                 </h2>
 
                                 <div class="d-flex align-items-center">
-                                    <img src="assets/img/blog/blog-author-5.jpg" alt=""
-                                        class="img-fluid post-author-img flex-shrink-0">
+                                    <img src="assets/img/irfan.jpg" alt=""
+                                        class="img-fluid" style="width: 40px; height: 43px ;margin-right: 15px; border-radius: 100%;">
                                     <div class="post-meta">
                                         <p class="post-author-list">Irfan</p>
                                         <p class="post-date">
