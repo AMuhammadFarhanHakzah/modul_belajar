@@ -12,37 +12,52 @@ use function PHPUnit\Framework\fileExists;
 
 class HomepageController extends Controller
 {
-    public function homepage() {
+    public function homepage()
+    {
         $moduls = modul::paginate(6);
         return view('homepage.homepage', compact('moduls'));
     }
 
-    public function modul() {
+    public function modul()
+    {
         $moduls = modul::paginate(6);
         return view('homepage.modul', compact('moduls'));
     }
 
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $cari = $request->key;
-        $moduls = modul::where('name', 'like', '%'.$cari.'%')->paginate(6);
+        $moduls = modul::where('name', 'like', '%' . $cari . '%')->paginate(6);
         return view('homepage.modul', compact('moduls', 'cari'));
     }
 
-    public function modulDetail(string $modul_id) {
+    public function modulDetail(string $modul_id)
+    {
         $modul = modul::find($modul_id);
         $latestModul = modul::orderBy('created_at', 'desc')->take(6)->get();
         return view('homepage.modulDetail', compact('modul', 'latestModul'));
     }
 
-    public function modulView($modul_id){
-        return response()->file(public_path('document/fullDocStorage/'.$modul_id));
+    public function modulView($modul_id)
+    {
+        $filePath = public_path('document/fullDocStorage/' . $modul_id);
+        if (file_exists($filePath)) {
+            return response()->file($filePath);
+        } else {
+            abort(404);
+        }
     }
 
-    public function download(Request $request, $file) {
-        if(file_exists(public_path('document/fullDocStorage/'.$file))){
-            return response()->download(public_path('document/fullDocStorage/'.$file));
-        }else{
-            return response()->download(public_path('document/lksDocStorage/'.$file));
+    public function download(Request $request, $file)
+    {
+        $fullDocPath = public_path('document/fullDocStorage/'.$file);
+        $lksDocPath = public_path('document/lksDocStorage/'.$file);
+        if (file_exists($fullDocPath)) {
+            return response()->download($fullDocPath);
+        } elseif (file_exists($lksDocPath)){
+            return response()->download($lksDocPath);
+        } else {
+            abort(404);
         }
     }
 }

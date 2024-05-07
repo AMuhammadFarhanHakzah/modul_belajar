@@ -103,17 +103,20 @@
                             <div class="col-xl-4 col-md-6  portfolio-item filter-app">
                                 <div class="portfolio-wrap">
                                     <article>
-                                        <a href="{{ route('modul_detail', $modul->modul_id) }}"
-                                            data-gallery="portfolio-gallery-app" class="glightbox"><img
-                                                src="document/fotoStorage/{{ $modul->foto }}" class="img-fluid"
-                                                alt="" style="height: 15em; width: 20em;"></a>
+                                        <a href="{{ route('modul_detail', $modul->modul_id) }}">
+                                            <div class="post-img">
+                                                <img src="document/fotoStorage/{{ $modul->foto }}" alt=""
+                                                    class="img-fluid" style="height: 15em; width: 20em;">
+                                            </div>
+                                        </a>
                                         <div class="portfolio-info">
-                                            <h4 style="word-break: break-all" class="mt-2"><a
-                                                    href="portfolio-details.html"
-                                                    title="More Details"><strong>{{ Str::limit($modul->name, 15, ' . . .') }}</strong></a>
+                                            <h4 class="title">
+                                                <a href="{{ route('modul_detail', $modul->modul_id) }}">
+                                                    <strong>{{ Str::limit($modul->name, 15, ' . . .') }}</strong>
+                                                </a>
                                             </h4>
-                                            <p style="word-break: break-all">
-                                                {{ Str::limit($modul->content, 30, ' . . .') }}</p>
+                                            <a href=""><p style="word-break: break-all">
+                                                {{ Str::limit($modul->content, 30, ' . . .') }}</p></a>
                                         </div>
                                     </article>
                                 </div>

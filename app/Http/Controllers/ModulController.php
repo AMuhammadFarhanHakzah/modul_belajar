@@ -132,6 +132,7 @@ class ModulController extends Controller
             if (file_exists($deleteModul->full_document)) {
                 unlink($deleteModul->full_document);
                 unlink($deleteModul->lks_document);
+                unlink($deleteModul->foto);
             }
         }
 
