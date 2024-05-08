@@ -37,13 +37,13 @@ class ModulController extends Controller
             $fdFile->move('document/fullDocStorage/', $full_document);
         }
 
-        // // LKS DOCUMENT
-        $lks_document = "";
-        if($request->hasFile('lks_document')){
-            $ldFile = $request->lks_document;
-            $lks_document = time() . $ldFile->getClientOriginalName();
-            $ldFile->move('document/lksDocStorage/', $lks_document);
-        }
+        // // // LKS DOCUMENT
+        // $lks_document = "";
+        // if($request->hasFile('lks_document')){
+        //     $ldFile = $request->lks_document;
+        //     $lks_document = time() . $ldFile->getClientOriginalName();
+        //     $ldFile->move('document/lksDocStorage/', $lks_document);
+        // }
 
         $foto = "";
         if($request->hasFile('foto')){
@@ -56,7 +56,7 @@ class ModulController extends Controller
         $data['title'] = $request->title;
         $data['content'] = $request->content;
         $data['full_document'] = $full_document;
-        $data['lks_document'] = $lks_document;
+        $data['lks_document'] = $request->lks_document;
         $data['foto'] = $foto;
 
         modul::create($data);
@@ -95,13 +95,13 @@ class ModulController extends Controller
             $fdFile->move('document/fullDocStorage/', $full_document);
         }
 
-        // // LKS DOCUMENT
-        $lks_document = "";
-        if($request->hasFile('lks_document')){
-            $ldFile = $request->lks_document;
-            $lks_document = time() . $ldFile->getClientOriginalName();
-            $ldFile->move('document/lksDocStorage/', $lks_document);
-        }
+        // // // LKS DOCUMENT
+        // $lks_document = "";
+        // if($request->hasFile('lks_document')){
+        //     $ldFile = $request->lks_document;
+        //     $lks_document = time() . $ldFile->getClientOriginalName();
+        //     $ldFile->move('document/lksDocStorage/', $lks_document);
+        // }
 
         $foto = "";
         if($request->hasFile('foto')){
@@ -114,7 +114,7 @@ class ModulController extends Controller
         $data['title'] = $request->title;
         $data['content'] = $request->content;
         $data['full_document'] = $full_document;
-        $data['lks_document'] = $lks_document;
+        $data['lks_document'] = $request->lks_document;
         $data['foto'] = $foto;
 
         $itemModuls->update($data);
@@ -131,7 +131,6 @@ class ModulController extends Controller
         if ($deleteModul->delete()) {
             if (file_exists($deleteModul->full_document)) {
                 unlink($deleteModul->full_document);
-                unlink($deleteModul->lks_document);
                 unlink($deleteModul->foto);
             }
         }

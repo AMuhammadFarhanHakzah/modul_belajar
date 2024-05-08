@@ -79,6 +79,8 @@
                                 alt=""></div>
                         <div class="swiper-slide"><img src="{{ asset('assets/img/bootstrap1.png') }}" class="img-fluid"
                                 alt=""></div>
+                        <div class="swiper-slide"><img src="{{ asset('assets/img/wordwall.png') }}" class="img-fluid"
+                                alt=""></div>
                     </div>
                 </div>
 
@@ -115,8 +117,10 @@
                                                     <strong>{{ Str::limit($modul->name, 15, ' . . .') }}</strong>
                                                 </a>
                                             </h4>
-                                            <a href=""><p style="word-break: break-all">
-                                                {{ Str::limit($modul->content, 30, ' . . .') }}</p></a>
+                                            <a href="">
+                                                <p style="word-break: break-all">
+                                                    {{ Str::limit($modul->content, 30, ' . . .') }}</p>
+                                            </a>
                                         </div>
                                     </article>
                                 </div>

@@ -10,7 +10,8 @@
                                 <strong>Edit modul</strong>
                             </div>
                             <div class="card-body card-block">
-                                <form action="{{ route('modul_admin.update', $moduls->modul_id) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                <form action="{{ route('modul_admin.update', $moduls->modul_id) }}" method="POST"
+                                    enctype="multipart/form-data" class="form-horizontal">
                                     @csrf
                                     @method('PUT')
                                     <div class="row form-group">
@@ -50,11 +51,11 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="lks_document" class=" form-control-label">LKS document</label>
+                                            <label for="lks_document" class=" form-control-label">Kerja LKS</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="file" id="lks_document" name="lks_document"
-                                                class="form-control-file" required>
+                                            <input type="text" id="lks_document" name="lks_document" placeholder="Link"
+                                                class="form-control" value="{{ $moduls->lks_document }}" required>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -62,8 +63,8 @@
                                             <label for="foto" class=" form-control-label">Foto</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="file" id="foto" name="foto"
-                                                class="form-control-file" required>
+                                            <input type="file" id="foto" name="foto" class="form-control-file"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="card-footer">

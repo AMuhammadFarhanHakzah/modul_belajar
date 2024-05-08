@@ -50,13 +50,24 @@
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="lks_document" class=" form-control-label">LKS document</label>
+                                            <label for="lks_document" class=" form-control-label">Kerja LKS</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="file" id="lks_document" name="lks_document"
-                                                class="form-control-file" required>
+                                            <input type="text" id="lks_document" name="lks_document" placeholder="Link"
+                                                class="form-control" value="{{ old('lks_document') }}" required>
                                         </div>
                                     </div>
+
+                                    {{-- <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="name" class=" form-control-label">Modul Name</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="name" name="name" placeholder="Text"
+                                                class="form-control" value="{{ old('name') }}" required>
+                                        </div>
+                                    </div> --}}
+
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="foto" class=" form-control-label">Foto</label>

@@ -40,9 +40,9 @@
                                                 <strong> Download Full</strong></a>
                                         </div>
                                         <div class="btn" style="background-color: cyan;">
-                                            <i class="bi bi-cloud-arrow-down"></i>
-                                            <a href="/download/{{ $modul->lks_document }}" class="text-dark">
-                                                <strong> Download LKS</strong></a>
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                            <a href="{{ $modul->lks_document }}" class="text-dark">
+                                                <strong>Kerja LKS</strong></a>
                                         </div>
                                     @endif
                                 @else
@@ -52,9 +52,9 @@
                                             <strong> Download Full</strong></a>
                                     </div>
                                     <div class="btn" style="background-color: cyan;">
-                                        <i class="bi bi-cloud-arrow-down"></i>
-                                        <a href="{{ route('login', ['redirect' => url()->current()]) }}" class="text-dark">
-                                            <strong> Download LKS</strong></a>
+                                        <i class="bi bi-box-arrow-up-right"></i>
+                                        <a href="{{ $modul->lks_document }}" class="text-dark">
+                                            <strong>Kerja LKS</strong></a>
                                     </div>
                                 @endif
                             </div>
@@ -83,12 +83,15 @@
 
                                     @foreach ($latestModul as $latest)
                                         <div class="post-item mt-3">
-                                            <a href="{{route('modul_detail', $latest->modul_id)}}">
-                                                <img src="/document/fotoStorage/{{$latest->foto}}" alt="" style="width: 5em; height: 5em;">
+                                            <a href="{{ route('modul_detail', $latest->modul_id) }}">
+                                                <img src="/document/fotoStorage/{{ $latest->foto }}" alt=""
+                                                    style="width: 5em; height: 5em;">
                                             </a>
                                             <div>
-                                                <h4><a href="{{ route('modul_detail', $latest->modul_id)}}" style="word-break: break-all">{{ Str::limit($latest->name, 15, ' . . .') }}</a></h4>
-                                                <time>{{$latest->updated_at}}</time>
+                                                <h4><a href="{{ route('modul_detail', $latest->modul_id) }}"
+                                                        style="word-break: break-all">{{ Str::limit($latest->name, 15, ' . . .') }}</a>
+                                                </h4>
+                                                <time>{{ $latest->updated_at }}</time>
                                             </div>
                                         </div><!-- End recent post item-->
                                         <br>

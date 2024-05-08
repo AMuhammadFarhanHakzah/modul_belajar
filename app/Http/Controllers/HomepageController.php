@@ -43,8 +43,6 @@ class HomepageController extends Controller
         $filePath = public_path('document/fullDocStorage/' . $modul_id);
         if (file_exists($filePath)) {
             return response()->file($filePath);
-        } else {
-            abort(404);
         }
     }
 
@@ -53,11 +51,9 @@ class HomepageController extends Controller
         $fullDocPath = public_path('document/fullDocStorage/'.$file);
         $lksDocPath = public_path('document/lksDocStorage/'.$file);
         if (file_exists($fullDocPath)) {
-            return response()->download($fullDocPath);
+            return Storage::download($fullDocPath);
         } elseif (file_exists($lksDocPath)){
-            return response()->download($lksDocPath);
-        } else {
-            abort(404);
+            return Storage::download($lksDocPath);
         }
     }
 }
