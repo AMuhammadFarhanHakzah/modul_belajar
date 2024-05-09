@@ -37,14 +37,6 @@ class ModulController extends Controller
             $fdFile->move('document/fullDocStorage/', $full_document);
         }
 
-        // // // LKS DOCUMENT
-        // $lks_document = "";
-        // if($request->hasFile('lks_document')){
-        //     $ldFile = $request->lks_document;
-        //     $lks_document = time() . $ldFile->getClientOriginalName();
-        //     $ldFile->move('document/lksDocStorage/', $lks_document);
-        // }
-
         $foto = "";
         if($request->hasFile('foto')){
             $fileFoto = $request->foto;
@@ -94,14 +86,6 @@ class ModulController extends Controller
             $full_document = time() . $fdFile->getClientOriginalName();
             $fdFile->move('document/fullDocStorage/', $full_document);
         }
-
-        // // // LKS DOCUMENT
-        // $lks_document = "";
-        // if($request->hasFile('lks_document')){
-        //     $ldFile = $request->lks_document;
-        //     $lks_document = time() . $ldFile->getClientOriginalName();
-        //     $ldFile->move('document/lksDocStorage/', $lks_document);
-        // }
 
         $foto = "";
         if($request->hasFile('foto')){

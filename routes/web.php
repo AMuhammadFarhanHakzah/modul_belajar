@@ -11,7 +11,7 @@ Route::get('/', [HomepageController::class, 'homepage'])->name('home');
 Route::get('/modul', [HomepageController::class, 'modul'])->name('modul');
 Route::get('/search', [HomepageController::class, 'search'])->name('modulSearch');
 Route::get('/modul/{modul_id}', [HomepageController::class, 'modulDetail'])->name('modul_detail');
-Route::get('/view/{file}', [HomepageController::class, 'modulView']);
+Route::get('/view/{file}', [HomepageController::class, 'modulView'])->name('viewModul');
 Route::get('/download/{file}', [HomepageController::class, 'download']);
 
 // Route::get('modul/{modul_id}/{full_document}', [HomepageController::class, 'modulView'])->name('modulView');

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    @if(Session::get('status'))
+    @if(Session::get('success'))
         <div class="alert alert-success">
             $message
         </div>

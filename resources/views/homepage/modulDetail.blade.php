@@ -28,7 +28,7 @@
                             <div class="action mt-4">
                                 <div class="btn" style="background-color: teal;">
                                     <i class="bi bi-eye-fill" style="color: white;"></i>
-                                    <a href="/view/{{ $modul->full_document }}" class="text-light">
+                                    <a href="{{route('viewModul', $modul->full_document)}}" class="text-light">
                                         <strong>View Full Document</strong>
                                     </a>
                                 </div>

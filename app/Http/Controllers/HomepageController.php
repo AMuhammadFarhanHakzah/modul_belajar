@@ -38,22 +38,26 @@ class HomepageController extends Controller
         return view('homepage.modulDetail', compact('modul', 'latestModul'));
     }
 
-    public function modulView($modul_id)
+    public function modulView($file)
     {
-        $filePath = public_path('document/fullDocStorage/' . $modul_id);
-        if (file_exists($filePath)) {
-            return response()->file($filePath);
+        // if (file_exists(public_path('document/fullDocStorage/' . $file))) {
+        //     return response()->file(public_path('document/fullDocStorage/' . $file));
+        // }
+        // $modul = modul::where('full_document', $file)->firstOrFail();
+
+        $modul = modul::where('full_document', $file)->first();
+
+        if (!$modul) {
+            abort(404);
         }
+
+        return view('homepage.modulView', compact('modul'));
     }
 
     public function download(Request $request, $file)
     {
-        $fullDocPath = public_path('document/fullDocStorage/'.$file);
-        $lksDocPath = public_path('document/lksDocStorage/'.$file);
-        if (file_exists($fullDocPath)) {
-            return Storage::download($fullDocPath);
-        } elseif (file_exists($lksDocPath)){
-            return Storage::download($lksDocPath);
+        if (file_exists(public_path('document/fullDocStorage/' . $file))) {
+            return response()->download(public_path('document/fullDocStorage/' . $file));
         }
     }
 }
