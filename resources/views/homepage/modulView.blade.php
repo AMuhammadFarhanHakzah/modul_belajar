@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Embed PDF file in html</title>
+    <style>
+        #myPDF{
+            width: 100%;
+            height: 665px;
+        }
+    </style>
 </head>
 <body>
-    <iframe src="/document/fullDocStorage/{{$modul->full_document}}" width="600" height="400" allowfullscreen></iframe>
-    <br>
-    hello world
+    <iframe id="myPDF" src="/document/fullDocStorage/{{$modul->full_document}}"></iframe>
 </html>

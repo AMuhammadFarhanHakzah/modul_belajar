@@ -26,34 +26,30 @@
                             </div><!-- End meta top -->
 
                             <div class="action mt-4">
-                                <div class="btn" style="background-color: teal;">
-                                    <i class="bi bi-eye-fill" style="color: white;"></i>
-                                    <a href="{{route('viewModul', $modul->full_document)}}" class="text-light">
-                                        <strong>View Full Document</strong>
-                                    </a>
-                                </div>
                                 @if (auth()->check())
                                     @if (auth()->user())
-                                        <div class="btn" style="background-color: cyan;">
-                                            <i class="bi bi-cloud-arrow-down"></i>
-                                            <a href="/download/{{ $modul->full_document }}" class="text-dark">
-                                                <strong> Download Full</strong></a>
+                                        <div class="btn mt-2" style="background-color: teal;">
+                                            <i class="bi bi-eye-fill" style="color: white;"></i>
+                                            <a href="{{ route('viewModul', $modul->full_document) }}" class="text-light">
+                                                <strong>Full Document</strong>
+                                            </a>
                                         </div>
-                                        <div class="btn" style="background-color: cyan;">
+                                        <div class="btn mt-2" style="background-color: cyan;">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                             <a href="{{ $modul->lks_document }}" class="text-dark">
                                                 <strong>Kerja LKS</strong></a>
                                         </div>
                                     @endif
                                 @else
-                                    <div class="btn" style="background-color: cyan;">
-                                        <i class="bi bi-cloud-arrow-down"></i>
-                                        <a href="{{ route('login', ['redirect' => url()->current()]) }}" class="text-dark">
-                                            <strong> Download Full</strong></a>
+                                    <div class="btn mt-2" style="background-color: teal;">
+                                        <i class="bi bi-eye-fill" style="color: white;"></i>
+                                        <a href="{{ route('login', ['redirect' => url()->current()]) }}" class="text-light">
+                                            <strong>Full Document</strong>
+                                        </a>
                                     </div>
-                                    <div class="btn" style="background-color: cyan;">
+                                    <div class="btn mt-2" style="background-color: cyan;">
                                         <i class="bi bi-box-arrow-up-right"></i>
-                                        <a href="{{ $modul->lks_document }}" class="text-dark">
+                                        <a href="{{ route('login', ['redirect' => url()->current()]) }}" class="text-dark">
                                             <strong>Kerja LKS</strong></a>
                                     </div>
                                 @endif
